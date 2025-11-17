@@ -2,15 +2,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Product } from "@/types";
-import { Package, Pencil, Star } from "lucide-react";
+import { Package, Pencil, Star, Trash2 } from "lucide-react";
 import Image from "next/image";
 
 interface ProductCardProps {
     product: Product;
     onEditClick?: (productId: number) => void;
+    onDeleteClick?: (productId: number) => void;
 }
 
-export function ProductCard({ product, onEditClick }: ProductCardProps) {
+export function ProductCard({
+    product,
+    onEditClick,
+    onDeleteClick,
+}: ProductCardProps) {
     const discountedPrice =
         product.price - (product.price * product.discountPercentage) / 100;
     const isLowStock = product.stock <= 10;
@@ -123,14 +128,24 @@ export function ProductCard({ product, onEditClick }: ProductCardProps) {
                         )}
                     </div>
 
-                    <Button
-                        onClick={() => onEditClick?.(product.id)}
-                        size="sm"
-                        className="gap-2"
-                    >
-                        <Pencil />
-                        Edit
-                    </Button>
+                    <div className="flex gap-2">
+                        <Button
+                            onClick={() => onDeleteClick?.(product.id)}
+                            size="icon"
+                            variant="outline"
+                            className=" bg-destructive/5 border-destructive/10"
+                        >
+                            <Trash2 className="w-3 h-3 text-destructive" />
+                        </Button>
+                        <Button
+                            onClick={() => onEditClick?.(product.id)}
+                            size="sm"
+                            className="gap-1"
+                        >
+                            <Pencil className="w-3 h-3" />
+                            Edit
+                        </Button>
+                    </div>
                 </div>
 
                 {/* Additional Info */}
