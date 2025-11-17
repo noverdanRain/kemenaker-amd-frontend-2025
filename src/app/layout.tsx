@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Outfit } from "next/font/google";
-import ClientProvider from "./clientProvider";
+import ClientProvider from "./ClientProvider";
 import "./globals.css";
 
 const outfitSans = Outfit({
