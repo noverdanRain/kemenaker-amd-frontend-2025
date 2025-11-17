@@ -1,7 +1,6 @@
-import { axiosInstance } from "@/lib/axios";
+import { getAllProducts } from "@/api/getAllProducts";
 import { QueryConfig } from "@/lib/react-query";
 import { queryOptions, useQuery } from "@tanstack/react-query";
-import { getAllProducts } from "@/api/getAllProducts";
 
 export const getProductListQueryKey = () => ["product-list"];
 
