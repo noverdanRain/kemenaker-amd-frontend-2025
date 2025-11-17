@@ -1,6 +1,6 @@
 import { login } from "@/api/login";
 import { accessTokenAtom } from "@/atom/auth";
-import { MutationConfig } from "@/lib/react-query";
+import { MutationConfig } from "@/lib/reactQuery";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useSetAtom } from "jotai/react";

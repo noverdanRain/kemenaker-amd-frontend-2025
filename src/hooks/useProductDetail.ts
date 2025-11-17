@@ -1,5 +1,5 @@
 import { getProductById, GetProductByIdParams } from "@/api/getProductById";
-import { QueryConfig } from "@/lib/react-query";
+import { QueryConfig } from "@/lib/reactQuery";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 
 export const getProductDetailQueryKey = (params: GetProductByIdParams) => ["product-list", params.id];

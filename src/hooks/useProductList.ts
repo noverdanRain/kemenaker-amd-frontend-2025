@@ -1,5 +1,5 @@
 import { getAllProducts } from "@/api/getAllProducts";
-import { QueryConfig } from "@/lib/react-query";
+import { QueryConfig } from "@/lib/reactQuery";
 import { queryOptions, useQuery } from "@tanstack/react-query";
 
 export const getProductListQueryKey = () => ["product-list"];
