@@ -1,9 +1,9 @@
 "use client";
 
-import {
-    QueryClient,
-    QueryClientProvider
-} from "@tanstack/react-query";
+import { LoadingOverlay } from "@/components/common/loadingOverlay";
+import { Toaster } from "@/components/ui/sonner";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Suspense } from "react";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +14,8 @@ export default function ClientProvider({
 }) {
     return (
         <QueryClientProvider client={queryClient}>
-            {children}
+            <Suspense fallback={<LoadingOverlay />}>{children}</Suspense>
+            <Toaster />
         </QueryClientProvider>
     );
 }
